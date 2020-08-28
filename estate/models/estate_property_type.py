@@ -20,10 +20,10 @@ class EstatePropertyType(models.Model):
     name = fields.Char("Name", required=True)
     sequence = fields.Integer("Sequence", default=10)
 
-    # Relational
+    # Relational (for inline view)
     property_ids = fields.One2many("estate.property", "property_type_id", string="Properties")
 
-    # Computed
+    # Computed (for stat button)
     offer_count = fields.Integer(string="Offers Count", compute="_compute_offer")
     offer_ids = fields.Many2many("estate.property.offer", string="Offers", compute="_compute_offer")
 
