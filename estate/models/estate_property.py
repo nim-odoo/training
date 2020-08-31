@@ -17,7 +17,6 @@ class EstateProperty(models.Model):
     _sql_constraints = [
         ("check_expected_price", "CHECK(expected_price > 0)", "The expected price must be strictly positive"),
         ("check_selling_price", "CHECK(selling_price >= 0)", "The offer price must be positive"),
-        ("check_cadastral_income", "CHECK(cadastral_income >= 0)", "The cadastral must be positive"),
     ]
 
     # ---------------------------------------- Default Methods ------------------------------------
@@ -34,7 +33,6 @@ class EstateProperty(models.Model):
     date_availability = fields.Date("Available From", default=lambda self: self._default_date_availability(), copy=False)
     expected_price = fields.Float("Expected Price", required=True)
     selling_price = fields.Float("Selling Price", copy=False, readonly=True)
-    cadastral_income = fields.Float("Cadastral Income")
     bedrooms = fields.Integer("Bedrooms", default=2)
     living_area = fields.Integer("Living Area (sqm)")
     facades = fields.Integer("Facades")
