@@ -12,4 +12,7 @@ class ResUsers(models.Model):
     # --------------------------------------- Fields Declaration ----------------------------------
 
     # Relational
-    property_ids = fields.One2many("estate.property", "user_id", string="Properties")
+    # This domain gives the opportunity to mention the evaluated and non-evluated domains
+    property_ids = fields.One2many(
+        "estate.property", "user_id", string="Properties", domain=[("state", "in", ["new", "offer_received"])]
+    )
