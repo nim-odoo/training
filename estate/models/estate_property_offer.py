@@ -6,7 +6,7 @@ from odoo.exceptions import UserError
 from odoo.tools import float_compare
 
 
-class EstatePropertyType(models.Model):
+class EstatePropertyOffer(models.Model):
 
     # ---------------------------------------- Private Attributes ---------------------------------
 
@@ -20,7 +20,7 @@ class EstatePropertyType(models.Model):
     # --------------------------------------- Fields Declaration ----------------------------------
 
     # Basic
-    price = fields.Float("Price")
+    price = fields.Float("Price", required=True)
     validity = fields.Integer(string="Validity (days)", default=7)
 
     # Special
